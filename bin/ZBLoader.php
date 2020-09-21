@@ -9,6 +9,12 @@
 
 $rootDir = dirname(__FILE__).'/../src';
 
+/**
+ * Loading by importance order
+ */
+load($rootDir."/Internal");
+load($rootDir."/Service");
+load($rootDir."/Controller");
 load($rootDir);
 
 /**
@@ -20,9 +26,9 @@ function load($dir) {
         if (is_file($path)) {
             require_once $path;
         } else {
-            if ($files != "." && $files != "..") {
+            /*if ($files != "." && $files != "..") {
                 load($path);
-            }
+            }  -- Disabled recurive because of misordering*/
         }
     }
 }

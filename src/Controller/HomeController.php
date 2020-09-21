@@ -2,6 +2,8 @@
 
 namespace Zonebourse\Controller;
 
+use Zonebourse\Internal\AbstractController;
+
 use Zonebourse\Service\Quotation\Example;
 use function Zonebourse\Service\callUserFonc;
 
@@ -12,26 +14,24 @@ class HomeController extends AbstractController {
         $ex = new Example();
         $data =  $ex->getQuotation();
 
-        $this->response->setContent(
-            $this->twigEngine->render('Home/home.twig', [
+        return $this->twigEngine->render('Home/home.twig', [
                 "test" => $data
-            ])
-        );
-        return $this->response;
+        ]);
     }
 
     function routeAbout() {
         $this->response->setContent(
-            "coucou Raphael"
+            "Cette réponse utilise la classe Response, qui sera intérprêtée dans le rendu final."
         );
+        $this->response->setStatus(201);
         return $this->response;
     }
 
     function routeRaphael() {
-        callUserFonc();
         $age = $this->request->get('age') ?? "pas d'";
         $prenom = $this->request->get('prenom');
-        return "$prenom bonjour toi tu vas bien ! :), tu as $age ans ";
+        $p = callUserFonc($prenom);
+        return "$prenom bonjour toi tu vas bien ! :), tu as $age ans,     $p";
     }
 
 }

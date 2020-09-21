@@ -1,9 +1,6 @@
 <?
 
-namespace Zonebourse\Controller;
-
-use Zonebourse\Internal\Request;
-use Zonebourse\Internal\Response;
+namespace Zonebourse\Internal;
 
 class AbstractController {
     /**
@@ -16,6 +13,7 @@ class AbstractController {
      protected $twigEngine;
      protected $request;
      protected $response;
+     protected $session;
 
      function __construct() {
         $loader = new \Twig\Loader\FilesystemLoader('./../templates');
@@ -24,5 +22,6 @@ class AbstractController {
         ]);
         $this->request = new Request();
         $this->response = new Response();
+        $this->session = new Session();
      }
 }

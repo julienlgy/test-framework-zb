@@ -2,6 +2,8 @@
 
 namespace Zonebourse\Controller;
 
+use Zonebourse\Internal\AbstractController;
+
 class ArticleController extends AbstractController {
     function routeArticle() {
         $articleNumber = $this->request->get('idArticle');

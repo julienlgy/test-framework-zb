@@ -45,6 +45,7 @@ class Response {
 
     function setContent($content) {
         $this->content = $content;
+        return $this;
     }
     function getContent() {
         return $this->content;

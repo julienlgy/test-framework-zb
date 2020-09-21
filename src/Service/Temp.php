@@ -2,6 +2,9 @@
 
 namespace Zonebourse\Service;
 
-function callUserFonc() {
-    return "ceci est une fonction";
+function callUserFonc($user) {
+    if (strtolower($user) == "remi")
+        return "Bravo !";
+    else
+        return "Muééé !";
 }

@@ -36,7 +36,12 @@ class Routes {
         if ($c) {
             $o = new $c[0]();
             try {
-                return $o->{"route".$c[1]}();
+                $r=$o->{"route".$c[1]}();
+                if (!($r instanceof Response)) {
+                    $a = new Response();
+                    $r = $a->setContent($r);
+                }
+                return $r;
             } catch (\Exception $e) {
                 return ( Response::send500() );
             }
