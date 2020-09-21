@@ -3,6 +3,7 @@
 namespace Zonebourse\Controller;
 
 use Zonebourse\Internal\Request;
+use Zonebourse\Internal\Response;
 
 class AbstractController {
     /**
@@ -14,6 +15,7 @@ class AbstractController {
 
      protected $twigEngine;
      protected $request;
+     protected $response;
 
      function __construct() {
         $loader = new \Twig\Loader\FilesystemLoader('./../templates');
@@ -21,5 +23,6 @@ class AbstractController {
             'cache' => './../var/cache',
         ]);
         $this->request = new Request();
+        $this->response = new Response();
      }
 }

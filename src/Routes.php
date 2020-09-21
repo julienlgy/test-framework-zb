@@ -3,6 +3,7 @@
 namespace Zonebourse;
 
 use Zonebourse\Controller;
+use Zonebourse\Internal\Response;
 
 class Routes {
 
@@ -27,7 +28,7 @@ class Routes {
         return null;
     }
 
-    static function Process() {
+    static function Process()  {
         $url = $_SERVER['REQUEST_URI'];
         if (strpos($url,"?"))
             $url = substr($url, 0, (strpos($url,"?")));
@@ -37,11 +38,11 @@ class Routes {
             try {
                 return $o->{"route".$c[1]}();
             } catch (\Exception $e) {
-                // log exception
-                return "500";
+                return ( Response::send500() );
             }
         }
-        return "404";
+        return ( Response::send404() );
+        
     }
 
     static private function checkArgs($url, $rurl) {
