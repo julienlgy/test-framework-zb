@@ -4,6 +4,9 @@ namespace Zonebourse\Controller;
 
 class ArticleController extends AbstractController {
     function routeArticle() {
-        return $this->twigEngine->render('Article/article.twig');
+        $articleNumber = $this->request->get('idArticle');
+        return $this->twigEngine->render('Article/article.twig', [
+            "idArticle" => $articleNumber
+        ]);
     }
 }

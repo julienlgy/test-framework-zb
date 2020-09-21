@@ -19,4 +19,8 @@ class HomeController extends AbstractController {
         ]);
     }
 
+    function routeAbout() {
+        return "About créée";   
+    }
+
 }

@@ -14,6 +14,6 @@
 
  use Zonebourse\Routes;
 
-$response = Routes::Process($_SERVER['REQUEST_URI']);
+$response = Routes::Process();
 
 echo $response;
