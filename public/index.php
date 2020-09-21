@@ -1,5 +1,4 @@
 <?php
-
 /**
  * ZONEBOURSE MAIN INDEX.PHP
  * 
@@ -10,9 +9,9 @@
 
  // Setting this here
  
- require './../bin/ZBLoader.php';
+require './../bin/ZBLoader.php';
 
- use Zonebourse\Routes;
+use Zonebourse\Routes;
 
 $response = Routes::Process();
 

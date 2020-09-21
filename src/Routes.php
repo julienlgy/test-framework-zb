@@ -10,7 +10,9 @@ class Routes {
         return [
             "/" => [Controller\HomeController::class, 'Home'],
             "/article/{idArticle:integer}" => [Controller\ArticleController::class, 'Article'],
-            "/about" => [Controller\HomeController::class, 'About']
+            "/about" => [Controller\HomeController::class, 'About'],
+            "/personne/{prenom:string}/{age:integer}" => [Controller\HomeController::class, 'Raphael'],
+            "/personne/{prenom:string}" => [Controller\HomeController::class, 'Raphael']
         ];
     }
     
